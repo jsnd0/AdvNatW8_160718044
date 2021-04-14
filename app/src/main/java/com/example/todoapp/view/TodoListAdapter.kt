@@ -8,7 +8,7 @@ import com.example.todoapp.R
 import com.example.todoapp.model.Todo
 import kotlinx.android.synthetic.main.todo_item_layout.view.*
 
-class TodoListAdapter (val todoList:ArrayList<Todo>):RecyclerView.Adapter<TodoListAdapter.TodoViewHolder>() {
+class TodoListAdapter (val todoList:ArrayList<Todo>, val adapterOnClick : (Any) -> Unit):RecyclerView.Adapter<TodoListAdapter.TodoViewHolder>() {
     class TodoViewHolder(var view: View):RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
@@ -20,6 +20,7 @@ class TodoListAdapter (val todoList:ArrayList<Todo>):RecyclerView.Adapter<TodoLi
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
         holder.view.checkTask.setText(todoList[position].title.toString())
+        adapterOnClick(todoList[position])
     }
 
     override fun getItemCount(): Int {

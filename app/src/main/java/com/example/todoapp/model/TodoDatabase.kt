@@ -19,8 +19,8 @@ abstract class TodoDatabase:RoomDatabase() {
             Room.databaseBuilder(
                 context.applicationContext,
                 TodoDatabase::class.java,
-                "newtododb"
-            ).addMigrations(MIGRATION_1_2)
+                "newtododb")
+                .addMigrations(MIGRATION_1_2)
                 .build()
 
 

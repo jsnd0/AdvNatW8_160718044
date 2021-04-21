@@ -15,13 +15,13 @@ import com.example.todoapp.viewmodel.ListTodoViewModel
 import kotlinx.android.synthetic.main.fragment_todo_list.*
 
 
-class TodoListFragment : Fragment() {
-private lateinit var viewModel:ListTodoViewModel
+    class TodoListFragment : Fragment() {
+    private lateinit var viewModel:ListTodoViewModel
     private val todoListAdapter = TodoListAdapter(arrayListOf(),{item -> doClick(item)})
 
-fun doClick(item:Any){
+    fun doClick(item:Any) {
     viewModel.clearTask(item as Todo)
-}
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,7 +42,7 @@ fun doClick(item:Any){
             val action = TodoListFragmentDirections.actionCreateTodo()
             Navigation.findNavController(it).navigate(action)
         }
-        
+        observeViewModel()
 
     }
     fun observeViewModel() {

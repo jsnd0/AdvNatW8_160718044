@@ -11,3 +11,11 @@ interface TodoCheckChangedListener {
 interface TodoEditClick {
     fun onTodoEditClick(v: View)
 }
+
+interface RadioClick {
+    fun onRadioClick(v: View, priority: Int, obj: Todo)
+}
+
+interface TodoSaveChangesClick {
+    fun onTodoSaveChangesClick(v: View, obj: Todo)
+}

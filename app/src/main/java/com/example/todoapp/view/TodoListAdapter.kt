@@ -13,7 +13,7 @@ import com.example.todoapp.model.Todo
 import kotlinx.android.synthetic.main.todo_item_layout.view.*
 import java.util.zip.Inflater
 
-class TodoListAdapter (val todoList:ArrayList<Todo>, val adapterOnClick : (Any) -> Unit):RecyclerView.Adapter<TodoListAdapter.TodoViewHolder>(), TodoCheckChangedListener {
+class TodoListAdapter (val todoList:ArrayList<Todo>, val adapterOnClick : (Any) -> Unit):RecyclerView.Adapter<TodoListAdapter.TodoViewHolder>(), TodoCheckChangedListener, TodoEditClick {
     class TodoViewHolder(var view: TodoItemLayoutBinding) : RecyclerView.ViewHolder(view.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
@@ -58,6 +58,13 @@ class TodoListAdapter (val todoList:ArrayList<Todo>, val adapterOnClick : (Any) 
         if (isChecked) {
             adapterOnClick(obj)
         }
+    }
+
+    override fun onTodoEditClick(v: View) {
+        val uuid = v.tag.toString().toInt()
+        val action = TodoListFragmentDirections.actionEditTodoFragment(uuid)
+
+        Navigation.findNavController(v).navigate(action)
     }
 
 }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.todoapp.R
@@ -24,7 +25,8 @@ class EditTodoFragment : Fragment(), RadioClick, TodoSaveChangesClick {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_todo, container, false)
+        dataBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_edit_todo, container, false)
+        return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

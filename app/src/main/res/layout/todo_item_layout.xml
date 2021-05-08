@@ -33,10 +33,10 @@
 
     <ImageView
         android:id="@+id/imgEdit"
-        android:tag="@{todo.uuid}"
+        android:layout_width="14dp"
+        android:layout_height="17dp"
         android:onClick="@{editListener::onTodoEditClick}"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:tag="@{todo.uuid}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/checkTask"
         app:layout_constraintTop_toTopOf="parent"
